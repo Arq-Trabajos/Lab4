@@ -1,4 +1,4 @@
-module ej_tb;
+module alu_tb;
 
     reg a, b;
     wire c;
