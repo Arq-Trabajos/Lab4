@@ -20,7 +20,7 @@ module alu (
     end
 
     wire Overflow, Carry,Negative, Zero;
-    assign Overflow = ~(ALUControl[0]^A^B) & (Sum[31:0]^A) & ~ALUControl[1];
+    assign Overflow = ~(ALUControl[0]^A[31]^B[31]) & (Sum[31]^A[31]) & ~ALUControl[1];
     assign Zero = 32b'0 == Result;
     assign Negative = Result[31];
     assign Carry = ~ALUControl[1] & Sum[32];
