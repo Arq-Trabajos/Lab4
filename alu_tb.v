@@ -1,9 +1,10 @@
+`timescale 1ps/1ps
 module alu_tb;
 
     reg a, b;
     wire c;
 
-    ej test(a,b,c);
+    alu test(a,b,c);
 
     initial begin
         a = 1;
