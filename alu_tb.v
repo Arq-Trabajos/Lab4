@@ -1,16 +1,24 @@
-`timescale 1ps/1ps
+`timescale 1ns/1ns
+`include "alu.v"
+
 module alu_tb;
+  	reg [1:0] alucontrol;
+  	reg [31:0] a;
+  	reg [31:0] b;
+  	wire [3:0] aluflags; 
+  	wire [31:0] result;
 
-    reg a, b;
-    wire c;
-
-    alu test(a,b,c);
-
+  alu test(.ALUControl(alucontrol), .A(a), .B(b), .ALUFlags(aluflags), .Result(result));
     initial begin
-        a = 1;
-        b = 2;
+        alucontrol = 2'b10;
+      	a = 32'h12345678;
+        b = 32'h87654321;
         #1;
-        $display(a, b, c);
+        $display("%b %x %x %x %d",alucontrol,a,b , result,aluflags);
+    end
+    initial begin
+        $dumpfile("alu.vcd");
+        $dumpvars;
     end
 
 endmodule
