@@ -12,7 +12,7 @@ module alu_tb;
   alu test(.ALUControl(alucontrol), .A(a), .B(b), .ALUFlags(aluflags), .Result(result)); // conjunction between module and testbench, delegating vars
     initial begin
         alucontrol = 2'b10; // enable the aku
-     	a = 32'h12345678; // inputs a 32 bit hexadecimal expression to cope with the other input, b
+     	  a = 32'h12345678; // inputs a 32 bit hexadecimal expression to cope with the other input, b
         b = 32'h87654321; // second hexadecimal expression for the arithmetic resolution
         #1;
       	$display("%b %x %x %x %d",alucontrol,a,b , result,aluflags); //visual display for the vcd file in order to see results and other variables shit
